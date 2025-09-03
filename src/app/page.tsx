@@ -9,10 +9,10 @@ import CtaSection from '@/components/sections/cta';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-transparent">
       <Header />
       <main className="flex-grow">
-        <HeroSection />
+        <HeroSection /> 
         <EarlyDetectionSection />
         <HowItWorksSection />
         <FeaturesSection />
