@@ -27,14 +27,10 @@ export default function Footer() {
               The future of proactive cardiac care.
             </p>
             <div className="flex gap-4">
-              <Link href="#" aria-label="Twitter">
-                <Twitter className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="LinkedIn">
+              <Link
+                href="https://www.linkedin.com/showcase/coeurai"
+                aria-label="LinkedIn">
                 <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="GitHub">
-                <Github className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
               </Link>
             </div>
           </div>

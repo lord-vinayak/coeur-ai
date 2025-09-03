@@ -17,7 +17,7 @@ export default function Home() {
         <HowItWorksSection />
         <FeaturesSection />
         <ClinicianBenefitsSection />
-        <CtaSection />
+        
       </main>
       <Footer />
     </div>

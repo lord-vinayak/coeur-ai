@@ -17,11 +17,11 @@ export default function ClinicianBenefitsSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 items-center">
           <FadeIn>
             <Image
-              src="https://picsum.photos/800/600"
+              src="/f5.jpg"
               data-ai-hint="doctor technology"
               alt="A smiling clinician using a tablet in a modern medical facility."
-              width={800}
-              height={600}
+              width={600}
+              height={400}
               className="rounded-xl shadow-2xl shadow-primary/10"
             />
           </FadeIn>

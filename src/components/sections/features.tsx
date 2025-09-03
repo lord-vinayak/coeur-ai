@@ -1,36 +1,40 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { HeartPulse, Smartphone, Users, WifiOff } from 'lucide-react';
-import { FadeIn } from '@/components/fade-in';
-import Image from 'next/image';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { HeartPulse, Smartphone, Users, WifiOff } from "lucide-react";
+import { FadeIn } from "@/components/fade-in";
+import Image from "next/image";
 
 const features = [
   {
     icon: <HeartPulse className="h-10 w-10 text-primary" />,
-    title: 'AI-Powered Detection',
-    description: 'Our proprietary algorithms detect arrhythmias and other cardiac anomalies with superhuman accuracy, 24/7.',
-    image: 'https://picsum.photos/600/400',
-    aiHint: 'heartbeat graph'
+    title: "AI-Powered Detection",
+    description:
+      "Our proprietary algorithms detect arrhythmias and other cardiac anomalies with superhuman accuracy, 24/7.",
+    image: "/f1.jpg",
+    aiHint: "heartbeat graph",
   },
   {
     icon: <Smartphone className="h-10 w-10 text-primary" />,
-    title: 'Real-Time Mobile App',
-    description: 'A user-friendly app for patients to view their data and for clinicians to receive instant alerts on the go.',
-    image: 'https://picsum.photos/600/400',
-    aiHint: 'mobile application'
+    title: "Real-Time Mobile App",
+    description:
+      "A user-friendly app for patients to view their data and for clinicians to receive instant alerts on the go.",
+    image: "/f2.jpg",
+    aiHint: "mobile application",
   },
   {
     icon: <Users className="h-10 w-10 text-primary" />,
-    title: 'Remote Diagnosis',
-    description: 'Enable expert consultations from anywhere in the world, breaking down geographical barriers to care.',
-    image: 'https://picsum.photos/600/400',
-    aiHint: 'doctor patient'
+    title: "Remote Diagnosis",
+    description:
+      "Enable expert consultations from anywhere in the world, breaking down geographical barriers to care.",
+    image: "/f3.jpg",
+    aiHint: "doctor patient",
   },
   {
     icon: <WifiOff className="h-10 w-10 text-primary" />,
-    title: 'Offline Functionality',
-    description: 'The device continues to collect and analyze data even without an internet connection, syncing when it reconnects.',
-    image: 'https://picsum.photos/600/400',
-    aiHint: 'remote landscape'
+    title: "Offline Functionality",
+    description:
+      "The device continues to collect and analyze data even without an internet connection, syncing when it reconnects.",
+    image: "/f4.jpg",
+    aiHint: "remote landscape",
   },
 ];
 
@@ -44,7 +48,8 @@ export default function FeaturesSection() {
               A Smarter Approach to Heart Health
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-muted-foreground md:text-xl/relaxed">
-              Explore the core features that make Coeur AI a game-changer in cardiac monitoring.
+              Explore the core features that make Coeur AI a game-changer in
+              cardiac monitoring.
             </p>
           </div>
         </FadeIn>
@@ -56,21 +61,25 @@ export default function FeaturesSection() {
                 <CardHeader className="flex flex-row items-start gap-4">
                   {feature.icon}
                   <div className="grid gap-1">
-                    <CardTitle className="text-xl font-bold">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold">
+                      {feature.title}
+                    </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="flex flex-col flex-grow">
-                  <p className="text-muted-foreground mb-6">{feature.description}</p>
-                   <div className="mt-auto">
-                      <Image
-                        src={feature.image}
-                        data-ai-hint={feature.aiHint}
-                        alt={feature.title}
-                        width={600}
-                        height={400}
-                        className="rounded-lg object-cover aspect-video"
-                      />
-                   </div>
+                  <p className="text-muted-foreground mb-6">
+                    {feature.description}
+                  </p>
+                  <div className="mt-auto">
+                    <Image
+                      src={feature.image}
+                      data-ai-hint={feature.aiHint}
+                      alt={feature.title}
+                      width={600}
+                      height={400}
+                      className="rounded-lg object-cover aspect-square"
+                    />
+                  </div>
                 </CardContent>
               </Card>
             </FadeIn>
