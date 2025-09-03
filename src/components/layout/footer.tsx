@@ -14,11 +14,13 @@ export default function Footer() {
               href="/"
               className="flex items-center gap-2"
               aria-label="Go to homepage">
-              <img
-                src="/co-logo.jpg"
-                className="h-12 w-12 text-primary"
-                alt="Coeur AI Logo"
-              />
+              <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center">
+                <img
+                  src="/co-log.png"
+                  className="h-10 w-10 object-contain"
+                  alt="Coeur AI Logo"
+                />
+              </div>
               <span className="text-xl font-bold">Coeur AI</span>
             </Link>
             <p className="text-muted-foreground">
