@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import TextType from "../ui/TextType";
 import Prism from "../ui/Prism";
+import LogoCarousel from "../ui/LogoCarousel";
 
 export default function HeroSection() {
   const logos = [
@@ -75,22 +76,16 @@ export default function HeroSection() {
                 className="text-base font-semibold px-8 py-6 w-full sm:w-auto">
                 Request a Demo <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button
-                size="lg"
-                variant="link"
-                className="text-base text-muted-foreground hover:text-primary w-full sm:w-auto">
-                Learn More
-              </Button>
             </div>
           </FadeIn>
         </div>
-        {/* <FadeIn delay={600}>
-            <div className="mt-6">
-              <p className="text-sm font-semibold text-muted-foreground tracking-wider uppercase">
-                Trusted & Supported By:
-              </p>
-              <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
-                {logos.map((logo, index) => (
+        <FadeIn delay={600}>
+          <div className="mt-6">
+            <p className="text-sm font-semibold text-muted-foreground tracking-wider uppercase">
+              Trusted & Supported By:
+            </p>
+            <div className="mt-2 flex justify-center items-center">
+              {/* {logos.map((logo, index) => (
                   <div key={index} className="flex justify-center">
                     <Image
                       src={logo.src}
@@ -100,10 +95,11 @@ export default function HeroSection() {
                       className="opacity-100 hover:opacity-100 transition-opacity"
                     />
                   </div>
-                ))}
-              </div>
+                ))} */}
+              <LogoCarousel columnCount={1} />
             </div>
-          </FadeIn> */}
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

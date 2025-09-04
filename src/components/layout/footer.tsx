@@ -1,8 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Twitter, Github } from "lucide-react";
-import CoeurAILogo from "@/components/icons/logo";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -27,11 +24,15 @@ export default function Footer() {
               The future of proactive cardiac care.
             </p>
             <div className="flex gap-4">
-              <Link
-                href="https://www.linkedin.com/showcase/coeurai"
-                aria-label="LinkedIn">
-                <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
+              <p className="mt-2 text-muted-foreground">A product of</p>
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
+                <img
+                  src="/logo-s.jpg"
+                  className="h-7 w-7 object-contain"
+                  alt="LogicBoots Logo"
+                />
+              </div>
+              <span className="mt-2 font-bold">LogicBoots</span>
             </div>
           </div>
           <div className="lg:col-span-2 grid gap-8 sm:grid-cols-3">
@@ -66,16 +67,9 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#"
+                    href="https://logicboots.com"
                     className="text-muted-foreground hover:text-primary transition-colors">
                     About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors">
-                    Careers
                   </Link>
                 </li>
                 <li>
@@ -110,18 +104,16 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Coeur AI, Inc. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} LogicBoots Private Limited. All
+            rights reserved.
           </p>
-          <form className="flex gap-2 w-full md:w-auto">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full md:w-auto"
-              aria-label="Email for newsletter"
-            />
-            <Button type="submit">Subscribe</Button>
-          </form>
+          <div className="flex gap-4">
+            <Link
+              href="https://www.linkedin.com/showcase/coeurai"
+              aria-label="LinkedIn">
+              <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
