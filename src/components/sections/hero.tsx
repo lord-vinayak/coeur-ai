@@ -9,6 +9,7 @@ import TextType from "../ui/TextType";
 import Prism from "../ui/Prism";
 import LogoCarousel from "../ui/LogoCarousel";
 
+
 export default function HeroSection() {
   const logos = [
     {
@@ -44,7 +45,7 @@ export default function HeroSection() {
           scale={3.6}
           hueShift={0}
           colorFrequency={1}
-          noise={0.5}
+          noise={0.2}
           glow={1}
         />
       </div>
@@ -85,21 +86,11 @@ export default function HeroSection() {
               Trusted & Supported By:
             </p>
             <div className="mt-2 flex justify-center items-center">
-              {/* {logos.map((logo, index) => (
-                  <div key={index} className="flex justify-center">
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={180}
-                      height={100}
-                      className="opacity-100 hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-                ))} */}
               <LogoCarousel columnCount={1} />
             </div>
           </div>
         </FadeIn>
+        
       </div>
     </section>
   );

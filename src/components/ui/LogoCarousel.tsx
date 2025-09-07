@@ -119,13 +119,13 @@ export default function LogoCarousel({
 
   const allLogos: Logo[] = useMemo(
     () => [
-      { name: "LogicBoots", id: 2, img: "/q2.jpg" },
-      { name: "STPI", id: 3, img: "/q3.jpg" },
-      { name: "Startup India", id: 4, img: "/q4.jpg" },
-      { name: "MeitY", id: 5, img: "/q5.jpg" },
-      { name: "Make In India", id: 6, img: "/q6.jpg" },
-      { name: "MedTech", id: 7, img: "/q7.jpg" },
-      { name: "Tides", id: 8, img: "/q8.jpg" },
+      { name: "LogicBoots", id: 2, img: "/lb.png" },
+      { name: "STPI", id: 3, img: "/stpi.png" },
+      { name: "Startup India", id: 4, img: "/dpiit.png" },
+      { name: "MeitY", id: 5, img: "/meity.png" },
+      { name: "Make In India", id: 6, img: "/mid.png" },
+      { name: "MedTech", id: 7, img: "/metech.png" },
+      { name: "Tides", id: 8, img: "/tides.png" },
     ],
     []
   );

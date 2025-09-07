@@ -1,26 +1,30 @@
-import { Stethoscope, BrainCircuit, Smartphone, FileText } from 'lucide-react';
-import { FadeIn } from '@/components/fade-in';
+import { Stethoscope, BrainCircuit, Smartphone, FileText } from "lucide-react";
+import { FadeIn } from "@/components/fade-in";
+import ThumbnailButton from "../thumbnail-button-video-player";
 
 const steps = [
   {
     icon: <Stethoscope className="h-10 w-10 text-primary" />,
-    title: 'Record',
-    description: 'Heart and lung sounds are recorded using our smart stethoscope.',
+    title: "Record",
+    description:
+      "Heart and lung sounds are recorded using our smart stethoscope.",
   },
   {
     icon: <BrainCircuit className="h-10 w-10 text-primary" />,
-    title: 'Analyze',
-    description: 'Data is instantly processed by our proprietary AI algorithm.',
+    title: "Analyze",
+    description: "Data is instantly processed by our proprietary AI algorithm.",
   },
   {
     icon: <Smartphone className="h-10 w-10 text-primary" />,
-    title: 'Visualize',
-    description: 'Real-time results and waveforms are displayed in our intuitive mobile app.',
+    title: "Visualize",
+    description:
+      "Real-time results and waveforms are displayed in our intuitive mobile app.",
   },
   {
     icon: <FileText className="h-10 w-10 text-primary" />,
-    title: 'Report',
-    description: 'A comprehensive report with findings is generated for clinical use.',
+    title: "Report",
+    description:
+      "A comprehensive report with findings is generated for clinical use.",
   },
 ];
 
@@ -34,7 +38,8 @@ export default function HowItWorksSection() {
               Simple Steps to a Smarter Diagnosis.
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-muted-foreground md:text-xl/relaxed">
-              Follow our straightforward process to leverage AI in your diagnostic workflow.
+              Follow our straightforward process to leverage AI in your
+              diagnostic workflow.
             </p>
           </div>
         </FadeIn>
@@ -42,7 +47,9 @@ export default function HowItWorksSection() {
         <div className="mt-16 max-w-4xl mx-auto">
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-border" aria-hidden="true"></div>
+            <div
+              className="absolute left-1/2 -ml-px w-0.5 h-full bg-border"
+              aria-hidden="true"></div>
 
             {steps.map((step, index) => (
               <FadeIn key={step.title} delay={index * 150}>
@@ -50,17 +57,26 @@ export default function HowItWorksSection() {
                   <div className="flex items-center">
                     {/* Circle and Icon */}
                     <div className="z-10 flex items-center justify-center w-24 h-24 rounded-full bg-card border-2 border-primary shadow-lg mx-auto">
-                        {step.icon}
+                      {step.icon}
                     </div>
                   </div>
                   <div className="mt-6 text-center">
                     <h3 className="text-xl font-bold">{step.title}</h3>
-                    <p className="mt-2 text-muted-foreground">{step.description}</p>
+                    <p className="mt-2 text-muted-foreground">
+                      {step.description}
+                    </p>
                   </div>
                 </div>
               </FadeIn>
             ))}
           </div>
+        </div>
+        <div className="flex justify-center mt-10">
+          <ThumbnailButton
+            videoUrl="https://files.catbox.moe/zb9ejd.mp4"
+            thumbnailUrl="/metech.png"
+            title="Watch our Demo Video"
+          />
         </div>
       </div>
     </section>
