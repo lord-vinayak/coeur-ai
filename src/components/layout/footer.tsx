@@ -23,8 +23,9 @@ export default function Footer() {
             <p className="text-muted-foreground">
               The future of proactive cardiac care.
             </p>
-            <div className="flex gap-4">
-              <p className="mt-2 text-muted-foreground">A product of</p>
+            <div className="flex gap-2">
+              <p className="mt-1 text-muted-foreground">A product of</p>
+              <span className="mt-1">LogicBoots</span>
               <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
                 <img
                   src="/logo-s.jpg"
@@ -32,7 +33,6 @@ export default function Footer() {
                   alt="LogicBoots Logo"
                 />
               </div>
-              <span className="mt-2 font-bold">LogicBoots</span>
             </div>
           </div>
           <div className="lg:col-span-2 grid gap-8 sm:grid-cols-3">
