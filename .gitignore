@@ -40,6 +40,9 @@ next-env.d.ts
 .genkit/*
 .env*
 .mp4
+.wav
+.py
+.tflite
 
 # firebase
 firebase-debug.log
