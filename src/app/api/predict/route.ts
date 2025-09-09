@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     console.error("Error in Next.js API route:", error);
     // Check if the python server is running if you see a fetch error here
     return NextResponse.json(
-      { error: "Internal Server Error. Is the Python server running?" },
+      { error: "Internal Server Error. Is the Python server running??" },
       { status: 500 }
     );
   }
