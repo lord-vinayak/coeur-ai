@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     const pythonApiFormData = new FormData();
     pythonApiFormData.append("file", file);
 
-    const response = await fetch(PYTHON_API_URL, {
+    const response = await fetch(`${PYTHON_API_URL}/predict`, {
       method: "POST",
       body: pythonApiFormData,
     });
