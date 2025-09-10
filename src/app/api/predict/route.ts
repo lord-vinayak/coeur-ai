@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '10mb', // Set desired value here
+      sizeLimit: "10mb", // Set desired value here
     },
   },
 };
@@ -45,7 +45,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const data = await response.json();
+    const responseText = await response.text();
+    console.log("DEBUG: Raw response from Python server:", responseText);
+    const data = JSON.parse(responseText);
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error in Next.js API route:", error);
