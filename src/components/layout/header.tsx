@@ -7,7 +7,6 @@ import CoeurAILogo from "@/components/icons/logo";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -58,7 +57,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button>Request a Demo</Button>
+          <Button asChild>
+            <Link href="/demo">Request a Demo</Link>
+          </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
