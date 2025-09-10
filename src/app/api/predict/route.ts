@@ -2,6 +2,14 @@
 
 import { NextResponse } from "next/server";
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb', // Set desired value here
+    },
+  },
+};
+
 // The URL of your running Python Flask server
 const PYTHON_API_URL = process.env.NEXT_PUBLIC_PYTHON_API_URL;
 
