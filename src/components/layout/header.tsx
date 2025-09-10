@@ -90,8 +90,8 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                  <Button className="mt-4" size="lg">
-                    Request a Demo
+                  <Button className="mt-4" size="lg" asChild>
+                    <Link href="/demo">Request a Demo</Link>
                   </Button>
                 </nav>
               </div>

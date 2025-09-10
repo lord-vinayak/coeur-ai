@@ -8,7 +8,7 @@ import Image from "next/image";
 import TextType from "../ui/TextType";
 import Prism from "../ui/Prism";
 import LogoCarousel from "../ui/LogoCarousel";
-
+import Link from "next/link";
 
 export default function HeroSection() {
   const logos = [
@@ -72,10 +72,18 @@ export default function HeroSection() {
           </FadeIn>
           <FadeIn delay={400}>
             <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Button
+              {/* <Button
                 size="lg"
                 className="text-base font-semibold px-8 py-6 w-full sm:w-auto">
                 Request a Demo <ArrowRight className="ml-2 h-5 w-5" />
+              </Button> */}
+              <Button
+                size="lg"
+                className="text-base font-semibold px-8 py-6 w-full sm:w-auto"
+                asChild>
+                <Link href="/demo">
+                  Request a Demo <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </FadeIn>
@@ -90,7 +98,6 @@ export default function HeroSection() {
             </div>
           </div>
         </FadeIn>
-        
       </div>
     </section>
   );

@@ -55,7 +55,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/demo"
                     className="text-muted-foreground hover:text-primary transition-colors">
                     Demo
                   </Link>
