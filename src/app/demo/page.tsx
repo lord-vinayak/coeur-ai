@@ -7,12 +7,24 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 
-type PredictionResult = {
-  [key: string]: number;
+type PredictionResponse = {
+  prediction: string;
+  probabilities: {
+    [key: string]: number;
+  };
+};
+
+// Mapping for user-friendly display labels
+const PREDICTION_LABELS: Record<string, string> = {
+  lung_wheeze: "Asthma/COPD",
+  lung_crackle: "Pneumonia",
+  heart_murmur: "Valve Disorder",
+  lung_normal: "Normal lung",
+  heart_normal: "Normal heart",
 };
 
 export default function DemoPage() {
-  const [prediction, setPrediction] = useState<PredictionResult | null>(null);
+  const [result, setResult] = useState<PredictionResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -24,7 +36,7 @@ export default function DemoPage() {
     if (!file) return;
 
     setIsLoading(true);
-    setPrediction(null);
+    setResult(null);
     setError(null);
 
     try {
@@ -36,13 +48,13 @@ export default function DemoPage() {
         body: formData,
       });
 
-      const result = await response.json();
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Prediction failed");
+        throw new Error(data.error || "Prediction failed");
       }
 
-      setPrediction(result);
+      setResult(data);
     } catch (err: any) {
       setError(err.message);
       console.error(err);
@@ -54,8 +66,9 @@ export default function DemoPage() {
     }
   };
 
-  const sortedPredictions = prediction
-    ? Object.entries(prediction).sort(([, a], [, b]) => b - a)
+  // Sort probabilities from highest to lowest
+  const sortedProbabilities = result
+    ? Object.entries(result.probabilities).sort(([, a], [, b]) => b - a)
     : [];
 
   return (
@@ -87,9 +100,8 @@ export default function DemoPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">
-              Upload a WAV audio file of a heartbeat. The model will
-              analyze it and predict the likelihood of Normal, Pneumonia, or TB
-              conditions.
+              Upload a WAV audio file of a heartbeat. The model will analyze it
+              and predict the likelihood of Normal, Pneumonia, or TB conditions.
             </p>
             <div className="flex flex-col gap-4">
               <Input
@@ -107,25 +119,43 @@ export default function DemoPage() {
               </Button>
             </div>
             {error && <p className="text-red-500 mt-4">{error}</p>}
-            {prediction && (
-              <div className="mt-6">
+
+            {result && (
+              <div className="mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                {/* Main Prediction Banner */}
+                <div className="bg-secondary/50 rounded-lg p-6 text-center mb-6 border border-primary/20">
+                  <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
+                    Primary Diagnosis
+                  </h3>
+                  <p className="text-2xl md:text-3xl font-bold text-primary">
+                    {/* Use the mapping, fallback to formatted string if missing */}
+                    {PREDICTION_LABELS[result.prediction] ||
+                      result.prediction.replace(/_/g, " ")}
+                  </p>
+                </div>
+
+                {/* Detailed Probabilities */}
                 <h3 className="text-lg font-semibold mb-4">
-                  Prediction Results:
+                  Detailed Analysis
                 </h3>
-                <div className="space-y-3">
-                  {sortedPredictions.map(([label, value]) => (
-                    <div key={label}>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-base font-medium text-foreground">
-                          {label}
-                        </span>
-                        <span className="text-sm font-medium text-foreground">
-                          {value.toFixed(2)}%
-                        </span>
+                <div className="space-y-4">
+                  {sortedProbabilities.map(([label, value]) => {
+                    // Convert 0-1 decimal to 0-100 percentage
+                    const percentage = value * 100;
+                    return (
+                      <div key={label}>
+                        <div className="flex justify-between mb-2">
+                          <span className="text-base font-medium text-foreground capitalize">
+                            {label.replace(/_/g, " ")}
+                          </span>
+                          <span className="text-sm font-medium text-foreground">
+                            {percentage.toFixed(2)}%
+                          </span>
+                        </div>
+                        <Progress value={percentage} className="w-full h-2" />
                       </div>
-                      <Progress value={value} className="w-full" />
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
